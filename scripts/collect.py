@@ -1,6 +1,7 @@
 """Standard-library only collector. Writes validated snapshots atomically."""
 from __future__ import annotations
-import argparse, copy, hashlib, json, re, sys, time
+import argparse, copy, hashlib, json, re, sys, time, os
+from localize import KoreanLocalizer
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -109,7 +110,7 @@ def merge_events(primary,secondary):
     return list(merged.values())
 
 def content_hash(e):
-    return hashlib.sha256(json.dumps({k:v for k,v in e.items() if k not in ['firstSeen','updatedAt','change','lifecycle','lastSeen']},sort_keys=True,ensure_ascii=False).encode()).hexdigest()
+    return hashlib.sha256(json.dumps({k:v for k,v in e.items() if k not in ['firstSeen','updatedAt','change','lifecycle','lastSeen','descriptionKo','descriptionTranslation','bonusesKo']},sort_keys=True,ensure_ascii=False).encode()).hexdigest()
 def reconcile(events, previous, timestamp, healthy_sources):
     old={e['id']:e for e in previous.get('events',[])}
     for e in events:
@@ -165,6 +166,9 @@ def run(args):
             if v.get('preferredPokemon'):
                 e['pokemon'].sort(key=lambda p:p['name']!=v['preferredPokemon'])
     events=reconcile(events,previous,timestamp,set(data))
+    localizer=KoreanLocalizer(read(ROOT/'scripts/korean.json',{}),read(output.with_name('translations-ko.json'),{}),enabled=os.environ.get('GO_CAL_TRANSLATE')=='1')
+    for event in events: localizer.apply(event)
+    atomic(output.with_name('translations-ko.json'),localizer.cache)
     result={'schemaVersion':1,'lastSuccess':timestamp,'lastAttempt':timestamp,'state':'ok' if len(data)==2 else 'degraded','sources':states,'events':sorted(events,key=lambda e:e['start'] or '9999')}
     # Roundtrip validation before replacement.
     assert len({e['id'] for e in events})==len(events)
