@@ -8,3 +8,18 @@
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 @media(max-width:650px){.event-date,.right-rail .event-date{font-size:11px;flex-wrap:wrap;line-height:1.8}.card-meta{font-size:10px;gap:7px}.tag{font-size:10px}.live-dot,.notice-dot{font-size:9px}.subtitle{font-size:12px}.card-copy h3,.right-rail .card-copy h3{font-size:14px}.card-art{width:62px}.event-open{padding-block:18px}.hero p{font-size:11px}.search input{font-size:12px}.sync{font-size:10px}.hero-label{font-size:9px}.hero button{font-size:12px;min-height:40px}.bottom-nav button{font-size:10px}.muted{font-size:12px}.description{font-size:13px}.bonus-list{font-size:12px}.detail-time{font-size:12px}.region{font-size:12px}.source-links{font-size:11px}}
 @media(max-width:650px){.chips button{min-height:44px}.heart,.right-rail .heart{width:44px;min-height:44px;right:0}.event-open,.right-rail .event-open{padding-right:44px}.hero button{min-height:44px}.view-switch button{min-height:44px;min-width:34px}.calendar-toolbar .icon-btn{min-height:44px;min-width:32px}.source-links a{min-height:44px}}
+
+/* Keep native dialogs inside the usable viewport; Tailwind resets UA auto margins. */
+dialog{position:fixed;inset:0;margin:auto;overflow:hidden;max-height:calc(100dvh - 48px);padding:0}
+dialog[open]{display:flex;flex-direction:column}
+.dialog-top{position:relative;top:auto;flex:0 0 auto;min-height:72px;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border)}
+.dialog-top .icon-btn{min-width:48px;min-height:48px;background:#2d3933;color:#f0f5ed;border:1px solid #4c5f4c;flex-shrink:0}
+.dialog-top .icon-btn:after{content:'닫기';font-size:11px}
+.dialog-top .icon-btn{display:flex;gap:5px;padding:0 12px}
+.dialog-top .icon-btn svg{width:18px;height:18px}
+.detail-body{min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;scrollbar-gutter:stable}
+.original-copy{border:1px solid var(--border);border-radius:10px;margin:18px 0;padding:0 14px;color:#98a79b}
+.original-copy summary{cursor:pointer;min-height:48px;display:flex;align-items:center;font-size:12px}
+.original-copy .description{font-size:12px;padding-bottom:15px;color:#9bab9e}
+.secondary-button{display:flex;align-items:center;justify-content:center;width:100%;min-height:48px;border:1px solid #4c5f4c;border-radius:9px;color:#d8e5d0;margin-top:12px;font-size:14px}
+@media(max-width:650px){dialog{inset:auto 0 0;margin:0;width:100%;max-width:100%;max-height:calc(100dvh - max(24px,env(safe-area-inset-top)) - 16px);border-radius:20px 20px 0 0;border-bottom:0;box-shadow:0 -15px 60px #0006}.dialog-top{min-height:76px;padding:14px 18px 10px}.dialog-top:before{content:'';position:absolute;top:6px;left:calc(50% - 20px);width:40px;height:4px;border-radius:8px;background:#4a5a50}.detail-body{padding:18px 20px calc(24px + env(safe-area-inset-bottom));scrollbar-gutter:auto}.detail-body h2{font-size:23px;line-height:1.5}.description{font-size:15px;line-height:1.9;word-break:keep-all;overflow-wrap:anywhere}.bonus-list{font-size:14px;line-height:1.8}.detail-time{font-size:13px}.detail-body .muted{font-size:12px}.detail-banner{max-height:170px}.region{font-size:13px}}
