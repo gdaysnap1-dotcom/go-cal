@@ -1,0 +1,14 @@
+{
+  "dynamax-uxie-mesprit-azelf-max-battle-day-2026": {
+    "url": "https://pokemongo.com/ko/news/dynamax-uxie-mesprit-azelf-max-battle-day-2026",
+    "checkedAt": "2026-10-24",
+    "nameKo": "유크시 · 엠라이트 · 아그놈 맥스배틀 데이",
+    "start": "2026-10-24T14:00:00+09:00",
+    "end": "2026-10-24T17:00:00+09:00",
+    "verifiedFields": ["start", "end", "region", "debut"],
+    "debut": true,
+    "preferredPokemon": "Uxie",
+    "region": "유크시: 아시아·태평양 / 엠라이트: 유럽·중동·아프리카·인도 / 아그놈: 아메리카·그린란드",
+    "note": "한국에서는 유크시가 등장합니다. 보너스별 적용 시각과 유료 티켓 조건은 공식 원문을 확인하세요. 보너스 목록 전체를 공식 검증한 것은 아닙니다."
+  }
+}
