@@ -35,6 +35,12 @@ class CollectorTests(unittest.TestCase):
         e=c.normalize(row(),'primary'); old=c.reconcile([copy.deepcopy(e)],{},'2026-10-20T00:00:00+00:00',{'primary'})
         result=c.reconcile([e],{'events':old},'2026-10-21T00:00:00+00:00',{'primary'})
         self.assertEqual(result[0]['change'],'unchanged'); self.assertEqual(result[0]['firstSeen'],old[0]['firstSeen'])
+    def test_translation_metadata_is_not_an_event_schedule_change(self):
+        e=c.normalize(row(),'primary')
+        old=c.reconcile([copy.deepcopy(e)],{},'2026-10-20T00:00:00+00:00',{'primary'})
+        old[0].update(descriptionKo='한국어 설명',bonusesKo=[],descriptionTranslation={'state':'reviewed'})
+        result=c.reconcile([e],{'events':old},'2026-10-21T00:00:00+00:00',{'primary'})
+        self.assertEqual(result[0]['change'],'unchanged')
     def test_absence_is_not_cancellation(self):
         e=c.normalize(row(),'primary'); old=c.reconcile([e],{},'2026-10-20T00:00:00+00:00',{'primary'})
         result=c.reconcile([],{'events':old},'2026-10-21T00:00:00+00:00',{'primary'})

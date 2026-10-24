@@ -33,6 +33,8 @@ jobs:
         id: collect
         continue-on-error: true
         run: python scripts/collect.py
+        env:
+          GO_CAL_TRANSLATE: '1'
       - name: Preserve last successful data and save attempt status
         run: |
           git config user.name 'github-actions[bot]'
