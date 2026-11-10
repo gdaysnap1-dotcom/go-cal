@@ -1,6 +1,6 @@
 """Standard-library only collector. Writes validated snapshots atomically."""
 from __future__ import annotations
-import argparse, copy, hashlib, json, re, sys, time, os
+import argparse, copy, hashlib, json, re, sys, time
 from localize import KoreanLocalizer
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -16,6 +16,30 @@ def now_iso(): return datetime.now(timezone.utc).isoformat()
 def read(path, default):
     try: return json.loads(Path(path).read_text(encoding='utf-8'))
     except (OSError, ValueError): return default
+def as_dict(value):
+    return value if isinstance(value, dict) else {}
+
+def localize_events(events, output, enabled=False):
+    localizer=KoreanLocalizer(
+        as_dict(read(ROOT/'scripts/korean.json',{})),
+        as_dict(read(output.with_name('translations-ko.json'),{})),
+        enabled=enabled,
+    )
+    # Save the limited online translation budget for currently relevant events.
+    for event in sorted(events, key=lambda e:e.get('lifecycle') in ('ended','unconfirmed')):
+        localizer.apply(event)
+    pending=sum(e['descriptionTranslation']['state']=='pending' or any(x is None for x in e['bonusesKo']) for e in events)
+    return pending, localizer.cache
+
+def enrich(output):
+    result=read(output,{})
+    if result.get('schemaVersion')!=1 or not result.get('events'):
+        raise ValueError('No validated event snapshot to translate.')
+    result['translationPending'], cache=localize_events(result['events'],output,enabled=True)
+    atomic(output.with_name('translations-ko.json'),cache)
+    atomic(output,result)
+    atomic(output.with_name('status.json'),{k:v for k,v in result.items() if k!='events'})
+    print(f"Translation pending for {result['translationPending']} events; schedule remains available.")
 def atomic(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     temp = path.with_suffix('.tmp')
@@ -166,10 +190,10 @@ def run(args):
             if v.get('preferredPokemon'):
                 e['pokemon'].sort(key=lambda p:p['name']!=v['preferredPokemon'])
     events=reconcile(events,previous,timestamp,set(data))
-    localizer=KoreanLocalizer(read(ROOT/'scripts/korean.json',{}),read(output.with_name('translations-ko.json'),{}),enabled=os.environ.get('GO_CAL_TRANSLATE')=='1')
-    for event in events: localizer.apply(event)
-    atomic(output.with_name('translations-ko.json'),localizer.cache)
-    result={'schemaVersion':1,'lastSuccess':timestamp,'lastAttempt':timestamp,'state':'ok' if len(data)==2 else 'degraded','sources':states,'events':sorted(events,key=lambda e:e['start'] or '9999')}
+    # Collection uses existing translations only. External translation runs after
+    # the validated schedule is saved, and may fail without preventing publication.
+    pending, _=localize_events(events,output)
+    result={'schemaVersion':1,'lastSuccess':timestamp,'lastAttempt':timestamp,'state':'ok' if len(data)==2 else 'degraded','sources':states,'translationPending':pending,'events':sorted(events,key=lambda e:e['start'] or '9999')}
     # Roundtrip validation before replacement.
     assert len({e['id'] for e in events})==len(events)
     atomic(output,result)
@@ -177,6 +201,9 @@ def run(args):
     print(f"Validated {len(events)} real events; state={result['state']}")
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser(); parser.add_argument('--raw'); parser.add_argument('--output',default=str(ROOT/'public/data/events.json'))
-    try: run(parser.parse_args())
+    parser=argparse.ArgumentParser(); parser.add_argument('--raw'); parser.add_argument('--output',default=str(ROOT/'public/data/events.json')); parser.add_argument('--enrich',action='store_true')
+    args=parser.parse_args()
+    try:
+        if args.enrich: enrich(Path(args.output))
+        else: run(args)
     except Exception as ex: print(str(ex),file=sys.stderr); sys.exit(1)
