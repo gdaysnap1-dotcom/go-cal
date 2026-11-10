@@ -19,22 +19,31 @@ concurrency:
 jobs:
   update-build-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Queued schedules can outlive the data commit from the previous run.
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Test collector
+      - name: Test collector on code changes
+        if: github.event_name == 'push'
         run: python -m unittest discover -s scripts -v
       - name: Collect and validate events
         id: collect
         continue-on-error: true
         run: python scripts/collect.py
-        env:
-          GO_CAL_TRANSLATE: '1'
+      - name: Translate new text without blocking publication
+        id: translate
+        if: steps.collect.outcome == 'success'
+        continue-on-error: true
+        timeout-minutes: 2
+        run: python scripts/collect.py --enrich
       - name: Preserve last successful data and save attempt status
         run: |
           git config user.name 'github-actions[bot]'
@@ -53,6 +62,7 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm test
+        if: github.event_name == 'push'
       - run: pnpm build
         env:
           BASE_PATH: /${{ github.event.repository.name }}/
@@ -63,6 +73,47 @@ jobs:
       - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify published refresh status
+        id: verify
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          python - <<'PY'
+          import json, os, time
+          from urllib.request import Request, urlopen
+          with open('public/data/status.json', encoding='utf-8') as file:
+              expected = json.load(file)
+          url = os.environ['PAGE_URL'].rstrip('/') + '/data/status.json'
+          for attempt in range(6):
+              try:
+                  request = Request(f'{url}?verify={time.time_ns()}', headers={'Cache-Control': 'no-cache'})
+                  with urlopen(request, timeout=8) as response:
+                      if json.load(response) == expected:
+                          print('Public site serves the expected refresh status.')
+                          break
+              except (OSError, ValueError):
+                  pass
+              if attempt < 5:
+                  time.sleep(5)
+          else:
+              raise SystemExit('Public site did not serve the expected refresh status.')
+          PY
+      - name: Record refresh outcome
+        if: always()
+        env:
+          COLLECTION: ${{ steps.collect.outcome }}
+          TRANSLATION: ${{ steps.translate.outcome }}
+          PUBLICATION: ${{ steps.deployment.outcome }}
+          PUBLIC_CHECK: ${{ steps.verify.outcome }}
+        run: |
+          {
+            echo '### GO CAL refresh'
+            echo "- Collect: $COLLECTION"
+            echo "- Translate: $TRANSLATION"
+            echo "- Publish: $PUBLICATION"
+            echo "- Public verification: $PUBLIC_CHECK"
+            python -c "import json; s=json.load(open('public/data/status.json')); print('- Last successful collection:', s.get('lastSuccess')); print('- Events with translation pending:', s.get('translationPending', 'unknown'))"
+          } >> "$GITHUB_STEP_SUMMARY"
       - name: Report failed collection after publishing preserved data
         if: steps.collect.outcome == 'failure'
         run: |
