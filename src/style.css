@@ -23,3 +23,56 @@ dialog[open]{display:flex;flex-direction:column}
 .original-copy .description{font-size:12px;padding-bottom:15px;color:#9bab9e}
 .secondary-button{display:flex;align-items:center;justify-content:center;width:100%;min-height:48px;border:1px solid #4c5f4c;border-radius:9px;color:#d8e5d0;margin-top:12px;font-size:14px}
 @media(max-width:650px){dialog{inset:auto 0 0;margin:0;width:100%;max-width:100%;max-height:calc(100dvh - max(24px,env(safe-area-inset-top)) - 16px);border-radius:20px 20px 0 0;border-bottom:0;box-shadow:0 -15px 60px #0006}.dialog-top{min-height:76px;padding:14px 18px 10px}.dialog-top:before{content:'';position:absolute;top:6px;left:calc(50% - 20px);width:40px;height:4px;border-radius:8px;background:#4a5a50}.detail-body{padding:18px 20px calc(24px + env(safe-area-inset-bottom));scrollbar-gutter:auto}.detail-body h2{font-size:23px;line-height:1.5}.description{font-size:15px;line-height:1.9;word-break:keep-all;overflow-wrap:anywhere}.bonus-list{font-size:14px;line-height:1.8}.detail-time{font-size:13px}.detail-body .muted{font-size:12px}.detail-banner{max-height:170px}.region{font-size:13px}}
+/* Mobile schedule, selected-day agenda and reachable sheet actions */
+.home-schedule .event-section { margin-top: 24px; }
+.home-filters.chips { flex-wrap: wrap; overflow: visible; margin: 0 0 18px; padding: 0; }
+.home-filters button { font-size: 13px; padding-inline: 12px; min-height: 44px; }
+.home-filters button span { font-size: inherit; }
+.event-date { font-size: 13px; flex-wrap: nowrap; align-items: flex-start; line-height: 1.55; }
+.event-date svg { flex-shrink: 0; margin-top: 3px; }
+.time-hint { display: block; color: var(--lime); font-size: 13px; font-weight: 650; font-variant-numeric: tabular-nums; margin: 4px 0; }
+.agenda-shortcut { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 48px; margin-bottom: 12px; padding: 8px 12px; border: 1px solid #53634c; border-radius: 9px; background: #253024; text-align: left; font-size: 13px; }
+.agenda-shortcut span:last-child { display: flex; align-items: center; gap: 6px; color: var(--lime); font-weight: 650; }
+.fc .picked-day { box-shadow: inset 0 0 0 2px #b6dc70; background: #9fbd4b24; }
+.agenda-title { scroll-margin-top: 78px; }
+.dialog-top .icon-btn::after { content: none; }
+.dialog-top .icon-btn { font-size: 13px; }
+.dialog-actions { flex: none; padding: 8px 16px max(12px, env(safe-area-inset-bottom)); background: #151c1d; border-top: 1px solid var(--border); }
+.dialog-actions .secondary-button { width: 100%; min-height: 48px; margin: 0; color: #f0f5ed; border-color: #53634c; background: #2d3933; font-size: 14px; }
+.detail-time small { font-size: 12px; }
+.detail-body .detail-banner { margin: 18px 0 0; }
+@media (max-width: 760px) {
+ .home-page .page-heading { margin-bottom: 14px; }
+ .home-page .search-row { margin-bottom: 12px; }
+ .home-filters button { padding-inline: 9px; }
+ .home-schedule .event-section { margin-block: 14px 16px; }
+ .home-schedule .card-meta { display: none; }
+ .home-schedule .event-open { padding-block: 13px; }
+ .card-copy h3 { font-size: 15px; }
+ .card-meta { font-size: 11px; }
+ .bottom-nav button { font-size: 11px; }
+ .calendar-toolbar .icon-btn, .view-switch button { min-height: 44px; min-width: 44px; }
+ .calendar-toolbar { flex-wrap: wrap; row-gap: 5px; }
+ .dialog-top { min-height: 64px; padding: 10px 16px 6px; }
+}
+.card-summary { margin: 6px 0 8px; color: #c2ccc4; font-size: 13px; line-height: 1.55; overflow-wrap: anywhere; }
+.home-schedule .event-open { align-items: flex-start; }
+.home-schedule .card-art { margin-top: 12px; background: transparent; }
+.home-schedule .card-art img { filter: none; }
+.home-schedule .tag, .calendar-panel .tag { color: #b2c4b7; background: transparent; padding-inline: 0; }
+.home-page .lime-dot { display: none; }
+.easy-guide { padding: 0 0 4px 14px; margin: 16px 0 24px; border-left: 2px solid #a8c783; }
+.detail-body .easy-guide h3 { margin: 0 0 6px; font-size: 15px; }
+.detail-body .easy-guide h3:not(:first-child) { margin-top: 16px; }
+.easy-guide p { font-size: 15px; line-height: 1.65; color: #e0e7df; }
+.easy-guide a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: 13px; color: var(--lime); text-decoration: underline; }
+.fc .fc-event.big-calendar-event { background: #c9dda4; border-color: #c9dda4; color: #202a1c; font-size: 11px; font-weight: 650; }
+.fc .big-calendar-event .fc-event-main, .fc .big-calendar-event .fc-event-title { color: inherit; font-weight: inherit; }
+.fc .big-calendar-event .fc-daygrid-event-dot { display: none; }
+.fc .big-calendar-event .fc-event-title { overflow: hidden; text-overflow: ellipsis; padding-inline: 3px; }
+.fc .fc-daygrid-day-number { font-size: 11px; }
+.fc .calendar-event-name { display: block; width: 100%; padding-inline: 2px; font-size: 10px; overflow: hidden; text-overflow: ellipsis; text-align: center; }
+@media (max-width: 760px) {
+ .home-schedule .card-art, .home-schedule .card-art img { width: 48px; height: 48px; }
+ .home-schedule .card-copy h3 { font-size: 16px; line-height: 1.4; }
+}
