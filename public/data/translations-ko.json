@@ -44,8 +44,138 @@
       "text": "다이너맥스 캐논 어드벤처 효과를 활성화하는 데 필요한 사탕과 별의 1/2 비용",
       "provider": "MyMemory",
       "sourceHash": "1c97f8beda2b47bfe001a1518a8d54329c006da25c6b0976353d660e78942e1f"
+    },
+    "cb7c72001ef76c3a11ee6b35e3ea5d811cf6a2c123cd74c30e77caa46693915d": {
+      "text": "2배의 별의 가루 포획",
+      "provider": "MyMemory",
+      "sourceHash": "cb7c72001ef76c3a11ee6b35e3ea5d811cf6a2c123cd74c30e77caa46693915d"
+    },
+    "30dcd1257441a27573d29372003686449d9bd532a4fbad4581c747ce21aa6bac": {
+      "text": "최대 전투에서 추가로 획득하는 사탕 및 XL 사탕",
+      "provider": "MyMemory",
+      "sourceHash": "30dcd1257441a27573d29372003686449d9bd532a4fbad4581c747ce21aa6bac"
+    },
+    "68dce3d6e7bca5cbdae854311c1dff5a1eef666073682b6b00adffdedadfd6cd": {
+      "text": "야생에서 이벤트 테마 포켓몬을 포획하거나 맥스 배틀 후 맥스 파티클을 받을 수 있는 기회",
+      "provider": "MyMemory",
+      "sourceHash": "68dce3d6e7bca5cbdae854311c1dff5a1eef666073682b6b00adffdedadfd6cd"
+    },
+    "43b260b165b7974d04cd786e688ce84ae864336e958af8b7556da36c317c963f": {
+      "text": "평소보다 많은 파워 스팟이 활성화됩니다.",
+      "provider": "MyMemory",
+      "sourceHash": "43b260b165b7974d04cd786e688ce84ae864336e958af8b7556da36c317c963f"
+    },
+    "3cfaed6c3c843499dd537a7a3957b659b18674bf8318f6153c8a1dce27aab66b": {
+      "text": "포켓몬 스포트라이트 아워에는 현지 시간 오후 6시에 1시간 동안 다른 포켓몬과 특별 보너스가 제공됩니다.\n11월 19일: 추천 포켓몬은 그로키, 스코번이, 염버니이며 특별 보너스는 포획 사탕 2배입니다.",
+      "provider": "MyMemory",
+      "sourceHash": "3cfaed6c3c843499dd537a7a3957b659b18674bf8318f6153c8a1dce27aab66b"
+    },
+    "3eac0ca08111afc7e2dd9b4ad940f3a7ab1a3d8c3cb1d1513e3f7d95f4c81924": {
+      "text": "에터나맥스 무한다이너스가 다이나맥스 트레일 기간 동안 돌아와 2026년 11월 21일 오전 11시부터 오후 2시(현지 시간)까지 대부분의 파워 스팟을 장악합니다.",
+      "provider": "MyMemory",
+      "sourceHash": "3eac0ca08111afc7e2dd9b4ad940f3a7ab1a3d8c3cb1d1513e3f7d95f4c81924"
+    },
+    "215b63237b8a48364a86858a7e42326a8160d132cbe3de0045afbbf4132f002a": {
+      "text": "최대 입자 수집 한도가 2,400개로 증가했습니다.",
+      "provider": "MyMemory",
+      "sourceHash": "215b63237b8a48364a86858a7e42326a8160d132cbe3de0045afbbf4132f002a"
+    },
+    "683d164a0c77da0e14f11900de0864d304f2e3ee0a5bb31c41376134710db99a": {
+      "text": "태양 스카프를 두른 에브이, 달 스카프를 두른 블래키, 그리고 록구를 통해 황혼의 소원을 기념하세요! 빛나는 별가사리와 빛나는 वाधिकार을 만날 확률이 높아지고, 이벤트 테마의 레이드와 필드 리서치, 이벤트 GO 패스로 얻는 보상과 보너스를 즐겨보세요.\n황혼의 소원은 2026년 11월 24일 화요일 오전 10시부터 11월 30일 월요일 오후 8시(현지 시간)까지 진행됩니다.",
+      "provider": "MyMemory",
+      "sourceHash": "683d164a0c77da0e14f11900de0864d304f2e3ee0a5bb31c41376134710db99a"
+    },
+    "12ba26cda7e15ef5f88ec2c8e874f92187dde33d9b4ad7b50e2db686f4649c12": {
+      "text": "럭키 프렌드가 될 확률 증가",
+      "provider": "MyMemory",
+      "sourceHash": "12ba26cda7e15ef5f88ec2c8e874f92187dde33d9b4ad7b50e2db686f4649c12"
+    },
+    "17b6de9fff5ccbae173f17e09c60b23473ee0281e3eb3d4f6cbf2d21aa25e206": {
+      "text": "빛나는 별구멍과 빛나는 란쿨루스를 만날 확률 증가",
+      "provider": "MyMemory",
+      "sourceHash": "17b6de9fff5ccbae173f17e09c60b23473ee0281e3eb3d4f6cbf2d21aa25e206"
+    },
+    "8d4d57f25295d6fb28286bba0b0d969802a3b8ffdad770421bff4c0b10d7560f": {
+      "text": "교환 시 행운의 포켓몬을 얻을 확률 증가",
+      "provider": "MyMemory",
+      "sourceHash": "8d4d57f25295d6fb28286bba0b0d969802a3b8ffdad770421bff4c0b10d7560f"
+    },
+    "6fb733d58e62840c85263a351fc42effa4dbb1375fa9297bd5ada13499e4ef8e": {
+      "text": "메가 피죤투가 2026년 11월 28일 토요일 오후 2시부터 오후 5시(현지 시간)까지 진행되는 피죤투 슈퍼 메가 레이드 데이에 Pokémon GO에 처음 등장합니다!",
+      "provider": "MyMemory",
+      "sourceHash": "6fb733d58e62840c85263a351fc42effa4dbb1375fa9297bd5ada13499e4ef8e"
+    },
+    "edf27c331263822e6ee6423e6f1aea19862338cbb0a309b8ff19f14c63cef868": {
+      "text": "슈퍼 메가 레이드에서 포획한 피카츄는 메가 레벨 1이 잠금 해제됩니다.",
+      "provider": "MyMemory",
+      "sourceHash": "edf27c331263822e6ee6423e6f1aea19862338cbb0a309b8ff19f14c63cef868"
+    },
+    "2f68f3b9ee5c3288afc6f30ffa0bc552aaed3e3c45035fe15c2ec50b93305f76": {
+      "text": "슈퍼 메가 레이드에서 빛나는 픽시를 만날 확률 증가",
+      "provider": "MyMemory",
+      "sourceHash": "2f68f3b9ee5c3288afc6f30ffa0bc552aaed3e3c45035fe15c2ec50b93305f76"
+    },
+    "6497beb78351c9ee20307c4991c8905261327fe5cacf778176337780f009b0d1": {
+      "text": "원격 레이드 한도가 2026년 11월 27일 금요일 오후 5시부터 11월 28일 토요일 오후 8시(태평양 표준시 기준)까지 20회로 상향 조정됩니다.",
+      "provider": "MyMemory",
+      "sourceHash": "6497beb78351c9ee20307c4991c8905261327fe5cacf778176337780f009b0d1"
+    },
+    "5f58226a1a9a5cf64449024fcdd218a8ff98274ac3836daaa345de0e24dcf7f1": {
+      "text": "맥스 배틀 데이 이벤트는 2026년 12월 5일 오후 2시부터 오후 5시까지 진행됩니다. 자세한 내용은 추후에 안내해 드리겠습니다.",
+      "provider": "MyMemory",
+      "sourceHash": "5f58226a1a9a5cf64449024fcdd218a8ff98274ac3836daaa345de0e24dcf7f1"
+    },
+    "b2e131eb71d8d877ba7f00898cbf55538d9859a36fe3dafed289c61bc7456b43": {
+      "text": "12월 커뮤니티 데이 이벤트는 2026년 12월 12일과 13일 양일간 매일 오후 2시부터 5시까지 진행됩니다. 자세한 내용은 추후 안내해 드리겠습니다.",
+      "provider": "MyMemory",
+      "sourceHash": "b2e131eb71d8d877ba7f00898cbf55538d9859a36fe3dafed289c61bc7456b43"
+    },
+    "9c05a037cdcc4117e306eee0a6e31557455d2b132a59fd2c771da57c8908a93c": {
+      "text": "레이드 데이 이벤트는 2026년 12월 19일 오후 2시부터 오후 5시까지 진행됩니다. 자세한 내용은 추후 안내해 드리겠습니다.",
+      "provider": "MyMemory",
+      "sourceHash": "9c05a037cdcc4117e306eee0a6e31557455d2b132a59fd2c771da57c8908a93c"
+    },
+    "99e697cf3719559c59e31127e56fcaa4490f3caa6a4100d9216702751ea836a7": {
+      "text": "해치 데이 이벤트는 2026년 12월 26일 오전 11시부터 오후 5시까지 진행됩니다. 자세한 내용은 추후 안내해 드리겠습니다.",
+      "provider": "MyMemory",
+      "sourceHash": "99e697cf3719559c59e31127e56fcaa4490f3caa6a4100d9216702751ea836a7"
+    },
+    "f0106e77f8faf7a7408eeff14b20e6c7d15457b2dad6588eb8e834e24cb033b0": {
+      "text": "1월 커뮤니티 데이 클래식 이벤트는 2027년 1월 2일 오후 2시부터 오후 5시까지 진행됩니다. 자세한 내용은 추후에 안내해 드리겠습니다.",
+      "provider": "MyMemory",
+      "sourceHash": "f0106e77f8faf7a7408eeff14b20e6c7d15457b2dad6588eb8e834e24cb033b0"
+    },
+    "27eda59a8660c481e8f50602a4ddabe84a194eba1794b7c5d5cb2c2a25c11089": {
+      "text": "슈퍼 메가 레이드 데이 이벤트는 2027년 1월 9일 오후 2시부터 오후 5시까지 진행됩니다. 자세한 내용은 추후에 안내해 드리겠습니다.",
+      "provider": "MyMemory",
+      "sourceHash": "27eda59a8660c481e8f50602a4ddabe84a194eba1794b7c5d5cb2c2a25c11089"
+    },
+    "214309fdc435810cbad0988ec9d2061f9b6afaf4405c86df34436fced1ea0e67": {
+      "text": "1월 커뮤니티 데이 행사는 2027년 1월 16일 오후 2시부터 5시까지 진행됩니다. 자세한 내용은 추후 안내해 드리겠습니다.",
+      "provider": "MyMemory",
+      "sourceHash": "214309fdc435810cbad0988ec9d2061f9b6afaf4405c86df34436fced1ea0e67"
+    },
+    "6f9ad68ba63f97eb5805575e8a078e263ecc68e4e9177e851a373531aeaa59c3": {
+      "text": "맥스 배틀 데이 이벤트는 2027년 1월 23일 오후 2시부터 오후 5시까지 진행됩니다. 자세한 내용은 추후에 안내해 드리겠습니다.",
+      "provider": "MyMemory",
+      "sourceHash": "6f9ad68ba63f97eb5805575e8a078e263ecc68e4e9177e851a373531aeaa59c3"
+    },
+    "bb942e939307454b1e3a2355e4c2b823a66583be7b3052630c7bd2b32a438a0c": {
+      "text": "슈퍼 메가 레이드 데이 이벤트는 2027년 1월 30일 오후 2시부터 오후 5시까지 진행됩니다. 자세한 내용은 추후에 안내해 드리겠습니다.",
+      "provider": "MyMemory",
+      "sourceHash": "bb942e939307454b1e3a2355e4c2b823a66583be7b3052630c7bd2b32a438a0c"
+    },
+    "0b1d9d933bbe919a674ecefd2c6c8846e524a4b2ec54e1029f75494756a791d5": {
+      "text": "2월 커뮤니티 데이 행사는 2027년 2월 6일 오후 2시부터 오후 5시까지 진행됩니다. 자세한 내용은 추후에 안내해 드리겠습니다.",
+      "provider": "MyMemory",
+      "sourceHash": "0b1d9d933bbe919a674ecefd2c6c8846e524a4b2ec54e1029f75494756a791d5"
+    },
+    "4353c17cc30bec6e98340e7988b474b151d2ffcfca7d27e241c14c1984052b68": {
+      "text": "레이드 데이 이벤트는 2027년 2월 13일 오후 2시부터 오후 5시까지 진행됩니다. 자세한 내용은 추후 안내해 드리겠습니다.",
+      "provider": "MyMemory",
+      "sourceHash": "4353c17cc30bec6e98340e7988b474b151d2ffcfca7d27e241c14c1984052b68"
     }
   },
   "usageDay": "2026-11-11",
-  "usedCharacters": 34
+  "usedCharacters": 2824
 }
