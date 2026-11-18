@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "lastSuccess": "2026-11-17T07:55:24.319838+00:00",
-  "lastAttempt": "2026-11-17T07:55:24.319838+00:00",
+  "lastSuccess": "2026-11-18T02:48:12.818609+00:00",
+  "lastAttempt": "2026-11-18T02:48:12.818609+00:00",
   "state": "ok",
   "sources": {
     "primary": {
       "ok": true,
-      "count": 45,
+      "count": 44,
       "url": "https://raw.githubusercontent.com/zhenga8533/leak-duck/data/events.json",
-      "checkedAt": "2026-11-17T07:55:24.319838+00:00"
+      "checkedAt": "2026-11-18T02:48:12.818609+00:00"
     },
     "secondary": {
       "ok": true,
-      "count": 45,
+      "count": 44,
       "url": "https://raw.githubusercontent.com/bigfoott/ScrapedDuck/data/events.json",
-      "checkedAt": "2026-11-17T07:55:24.319838+00:00"
+      "checkedAt": "2026-11-18T02:48:12.818609+00:00"
     }
   },
   "translationPending": 0
